@@ -1,0 +1,7 @@
+.wysrodkowany{
+    text-align: center;
+}
+.obok{
+    display: flex;
+    gap: 20px;
+}
