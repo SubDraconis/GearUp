@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Airsoft menager</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="plecak-kontener">
+        <div id="ikona-plecaka">🎒</div> <div id="zawartosc-plecaka">
+            <h3>Mój ekwipunek:</h3>
+            <ul>
+                {# Używamy pętli z licznikiem (loop.index0), aby uzyskać indeks każdego przedmiotu #}
+                {% for przedmiot in moj_ekwipunek %}
+                    <li>{{ przedmiot.nazwa }}
+                        <form action="/usun" method="post" style="display: inline;">
+                            {# Przekazujemy indeks przedmiotu do usunięcia #}
+                            <input type="hidden" name="index_przedmiotu" value="{{ loop.index0 }}">
+                            <button type="submit">Usuń</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+            <p><strong>Łączna waga:</strong> {{ laczna_waga }} kg</p>
+            <p><strong>Łączna cena:</strong> {{ laczna_cena }} zł</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li class="kategoria wysrodkowany"><a href="{{ url_for('strona_glowna') }}"> Strona Główna</a></li>
+            <li class="kategoria wysrodkowany"><a href="{{ url_for('strona_sklep') }}">Sklep</a></li>
+            <li class="kategoria wysrodkowany"><a href="#">Wyposażenie</a></li>
+            <li class="kategoria wysrodkowany"><a href="#">Kontakt</a></li>
+        </ul>
+    </nav>
+
+    <h1 class="wysrodkowany"> Witaj na stronie</h1>
+    
+    {# Pętla po głównych grupach: "Broń", "Wyposażenie" #}
+    {% for nazwa_grupy, podkategorie in kategorie.items() %}
+        <h2 class="wysrodkowany">{{ nazwa_grupy }}</h2>
+        
+        <div class="kategorie-kontener">
+            {# Pętla po podkategoriach wewnątrz grupy, np. "Karabiny", "Pistolety" #}
+            {% for nazwa_kategorii, lista_przedmiotow in podkategorie.items() %}
+                <div class="kategoria">
+                    <h3>{{ nazwa_kategorii }}</h3>
+                    <ul>
+                        {% for przedmiot in lista_przedmiotow %}
+                            <li>
+                                <strong>{{ przedmiot.nazwa }}</strong> (Cena: {{ przedmiot.cena }} zł, Waga: {{ przedmiot.waga }}kg)
+                                <form action="/dodaj" method="post" style="display: inline;">
+                                    <input type="hidden" name="nazwa_przedmiotu" value="{{ przedmiot.nazwa }}">
+                                    <button type="submit">Dodaj</button>
+                                </form>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,7 +1,45 @@
 .wysrodkowany{
     text-align: center;
 }
-.obok{
+
+.kategorie-kontener{
     display: flex;
+    flex-wrap: wrap; /* Pozwala elementom zawijać się do nowego wiersza */
+    justify-content: center; /* Wyśrodkowuje kategorie w kontenerze */
     gap: 20px;
+}
+
+/* Styl dla pojedynczego bloku z kategorią */
+.kategoria {
+    flex: 1 1 350px; /* flex-grow, flex-shrink, flex-basis. Każdy blok będzie miał ok. 350px szerokości */
+    max-width: 400px; /* Ograniczenie maksymalnej szerokości dla czytelności */
+    border: 1px solid lightgray;
+    padding: 15px;
+    border-radius: 8px;
+}
+#plecak-kontener {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: white; /* Dodajmy tło, żeby nie był przezroczysty */
+    border: 1px solid #ccc; /* I ramkę, żeby go było widać */
+    border-radius: 8px; /* Zaokrąglone rogi wyglądają lepiej */
+}
+
+#ikona-plecaka {
+    position: fixed;
+    cursor: pointer; /* Zmienia kursor na "rączkę", gdy najedziemy na ikonę */
+    font-size: 24px; /* Powiększa ikonę */
+}
+#zawartosc-plecaka {
+    display: none; /* Domyślnie ukrywamy zawartość plecaka */
+    margin-top: 10px; /* Dodajemy trochę odstępu od ikony */
+    padding: 10px; /* Dodajemy trochę wewnętrznego odstępu */
+}
+nav ul {
+  display: flex;         /* Układa elementy w jednej linii */
+  list-style-type: none; /* Usuwa kropki */
+  padding: 0;            /* Usuwa domyślne wcięcie listy */
+  margin: 0;             /* Usuwa domyślny margines listy */
+  justify-content: center; /* Wyśrodkowuje elementy menu */
 }
