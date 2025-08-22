@@ -18,24 +18,28 @@
     border-radius: 8px;
 }
 #plecak-kontener {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background-color: white; /* Dodajmy tło, żeby nie był przezroczysty */
-    border: 1px solid #ccc; /* I ramkę, żeby go było widać */
-    border-radius: 8px; /* Zaokrąglone rogi wyglądają lepiej */
+  position: fixed; /* Tylko kontener jest "przyklejony" */
+  top: 20px;
+  right: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 1000; /* Upewnia się, że plecak jest zawsze na wierzchu */
 }
 
 #ikona-plecaka {
-    position: fixed;
-    cursor: pointer; /* Zmienia kursor na "rączkę", gdy najedziemy na ikonę */
-    font-size: 24px; /* Powiększa ikonę */
+  /* Usunęliśmy stąd position: fixed */
+  cursor: pointer;
+  font-size: 24px;
+  padding: 10px; /* Dodajemy padding tutaj, żeby łatwiej było kliknąć */
 }
+
 #zawartosc-plecaka {
-    display: none; /* Domyślnie ukrywamy zawartość plecaka */
-    margin-top: 10px; /* Dodajemy trochę odstępu od ikony */
-    padding: 10px; /* Dodajemy trochę wewnętrznego odstępu */
+  display: none;
+  padding: 15px; /* Dajemy padding zawartości, a nie ikonie */
+  border-top: 1px solid #ccc; /* Linia oddzielająca ikonę od zawartości */
 }
+
 nav ul {
   display: flex;         /* Układa elementy w jednej linii */
   list-style-type: none; /* Usuwa kropki */
