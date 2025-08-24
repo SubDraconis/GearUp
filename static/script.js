@@ -5,16 +5,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const ikonaPlecaka = document.getElementById('ikona-plecaka');
     const zawartoscPlecaka = document.getElementById('zawartosc-plecaka');
 
-    // Mówimy przeglądarce: "słuchaj" na kliknięcia w ikonę plecaka
+    // Obsługa kliknięcia na ikonę plecaka
     ikonaPlecaka.addEventListener('click', function() {
-        
-        // Sprawdzamy, czy zawartość plecaka jest aktualnie ukryta
         if (zawartoscPlecaka.style.display === 'none') {
-            // Jeśli tak, to ją pokaż (zmień display na 'block')
             zawartoscPlecaka.style.display = 'block';
         } else {
-            // W przeciwnym wypadku (czyli jeśli jest widoczna), ukryj ją
             zawartoscPlecaka.style.display = 'none';
         }
     });
+
+    // Automatyczne znikanie flashów po 3 sekundach
+    const flashMessages = document.querySelectorAll('.flash-message');
+    if (flashMessages.length > 0) {
+        setTimeout(function() {
+            flashMessages.forEach(function(msg) {
+                msg.style.display = 'none';
+            });
+        }, 3000); // 3000 ms = 3 sekundy
+    }
 });

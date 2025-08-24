@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Airsoft menager{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for message in messages %}
+                    <div class="flash-message">{{ message }}</div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+    <div id="plecak-kontener">
+        <div id="ikona-plecaka">🎒</div>
+        <div id="zawartosc-plecaka">
+            <h3>Mój ekwipunek:</h3>
+            <p><strong>Iloś rzeczy:</strong>{{ilosc_przedmiotow}}</p>
+            <ul>
+                {% for przedmiot in moj_ekwipunek %}
+                    <li>{{ przedmiot.nazwa }}
+                        <form action="/usun" method="post" style="display: inline;">
+                            <input type="hidden" name="index_przedmiotu" value="{{ loop.index0 }}">
+                            <input type="hidden" name="nazwa_przedmiotu" value="{{ przedmiot.nazwa }}">
+                            <button type="submit">Usuń</button>
+                        </form>
+                    </li>
+                {% endfor %}
+            </ul>
+            <form action="/wyczysc" method="post">
+                <button type="submit">Wyczyść Ekwipunek</button>
+            </form>
+            <p><strong>Łączna waga:</strong> {{ laczna_waga }} kg</p>
+            <p><strong>Łączna cena:</strong> {{ laczna_cena }} zł</p>
+        </div>
+    </div>
+    <nav>
+        <ul>
+            <li class="kategoria wysrodkowany"><a href="{{ url_for('strona_glowna') }}"> Strona Główna</a></li>
+            <li class="kategoria wysrodkowany"><a href="{{ url_for('strona_sklep') }}">Sklep</a></li>
+            <li class="kategoria wysrodkowany"><a href="{{ url_for('strona_przymierzanie') }}">Przymierzanie</a></li>
+            <li class="kategoria wysrodkowany"><a href="{{ url_for('strona_random') }}">Random</a></li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

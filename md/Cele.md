@@ -6,11 +6,7 @@ Ten plik zawiera listę potencjalnych ulepszeń i nowych funkcji, które mogą z
 
 ### ## Etap 1: Natychmiastowe Ulepszenia (Poprawa tego, co już mamy)
 
-* [ ] **Wiadomości "Flash" dla Użytkownika:** Dodać powiadomienia (np. "Dodano M4A1") po dodaniu/usunięciu przedmiotu przy użyciu systemu `flash` z Flaska.
-* [ ] **Przycisk "Wyczyść Ekwipunek":** Dodać przycisk w plecaku, który usuwa wszystkie przedmioty z sesji.
-* [ ] **Licznik Przedmiotów na Ikonie Plecaka:** Dodać małą cyfrę na ikonie 🎒, która pokazuje, ile przedmiotów jest aktualnie w ekwipunku.
-* [ ] **Ulepszone Przekierowania:** Sprawić, by po dodaniu/usunięciu przedmiotu użytkownik wracał na stronę, na której był (np. na `/sklep`), a nie zawsze na stronę główną.
-* [ ] **Dokończenie Nawigacji:** Zaimplementować podstrony dla linków "Wyposażenie" i "Kontakt" w menu.
+* [ ] **Dokończenie Nawigacji:** Zaimplementować podstrony dla linków pozostalych w menu.
 
 ---
 
@@ -18,9 +14,9 @@ Ten plik zawiera listę potencjalnych ulepszeń i nowych funkcji, które mogą z
 
 * [ ] **Obrazki dla Przedmiotów:** Dodać do każdego przedmiotu pole z linkiem do obrazka i wyświetlać te obrazki w sklepie.
 * [ ] **Sortowanie i Filtrowanie:** Dodać na stronie sklepu opcje sortowania (po cenie, wadze) i pole do filtrowania przedmiotów po nazwie.
-* [ ] **Osobne Strony dla Kategorii:** Stworzyć dedykowane podstrony dla głównych kategorii (np. `/bron` i `/wyposazenie`).
 * [ ] **Szczegółowe Strony Przedmiotów:** Umożliwić kliknięcie na przedmiot, aby przejść do osobnej strony z jego szczegółowym opisem i większym zdjęciem.
 * [ ] **Porównywanie Przedmiotów:** Dodać funkcję zaznaczenia kilku przedmiotów i wyświetlenia ich statystyk w tabeli porównawczej.
+* [ ] **Dodanie wygladu** zrobienie stroony gdzie bedzie moznzna zobaczyc jak to bdize wygladc wrzystko
 
 ---
 

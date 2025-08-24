@@ -1,3 +1,39 @@
+/* Popup z detalami przedmiotu */
+.przedmiot-popup {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  padding: 12px;
+  min-width: 220px;
+  z-index: 3000;
+}
+li:hover .przedmiot-popup,
+li:focus .przedmiot-popup {
+  display: block;
+}
+/* Flash messages styling */
+.flash-messages {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2000;
+}
+.flash-message {
+  background: #ffeeba;
+  color: #856404;
+  border: 1px solid #ffeeba;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
 .wysrodkowany{
     text-align: center;
 }
